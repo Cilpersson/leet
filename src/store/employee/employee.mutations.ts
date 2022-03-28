@@ -1,3 +1,4 @@
+import { ESortOrder } from "@/enums/sort-order";
 import { Employee } from "@/types/employee";
 import { MutationTree } from "vuex";
 import { EmployeeMutation } from "./employee.constants";
@@ -12,5 +13,11 @@ export const mutations: MutationTree<EmployeeState> = {
   },
   [EmployeeMutation.SetEmployees](state, employees: Employee[]) {
     state.employees = employees;
+  },
+  [EmployeeMutation.SetFilteredEmployees](state, employees: Employee[]) {
+    state.filteredEmployees = employees;
+  },
+  [EmployeeMutation.SetSortOrder](state, sortOrder: ESortOrder) {
+    state.sortOrder = sortOrder;
   },
 };
